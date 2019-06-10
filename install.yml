@@ -1,0 +1,16 @@
+---
+- name: Elasticsearch master node install!
+  hosts: master_nodes
+  serial: 5
+  tasks:
+    - debug: msg="{{ es_config }}"
+  roles:
+    - elasticsearch.install
+
+- name: Elasticsearch data node install!
+  hosts: data_nodes
+  serial: 5
+  tasks:
+    - debug: msg="{{ es_config }}"
+  roles:
+    - elasticsearch.install
