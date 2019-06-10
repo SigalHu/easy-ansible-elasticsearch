@@ -1,0 +1,8 @@
+[master_nodes]
+127.0.0.1 node_name=node-master-1
+
+[data_nodes]
+localhost node_name=node-data-1
+
+[all:vars]
+cluster_name=easy_cluster
