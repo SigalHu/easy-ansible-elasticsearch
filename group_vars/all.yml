@@ -2,13 +2,9 @@
 es_instance_name: "{{ cluster_name }}_{{ node_name }}"
 es_version: 5.6.0
 es_use_repository: false
-es_config:
-  cluster.name: "{{ cluster_name }}"
-  node.name: "{{ node_name }}"
-  http.port: 9200
-  transport.tcp.port: 9300
-  network.host: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-  discovery.zen.ping.unicast.hosts: "{{ groups['es_test']|join(',') }}"
+
+es_api_basic_auth_username: admin
+es_api_basic_auth_password: admin
 
 es_home: "/data/elasticsearch-{{ es_version }}"
 es_conf_dir: "{{ es_home }}/config"

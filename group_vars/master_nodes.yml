@@ -1,5 +1,12 @@
 ---
 es_config:
+  cluster.name: "{{ cluster_name }}"
+  node.name: "{{ node_name }}"
+  http.port: 9200
+  transport.tcp.port: 9300
+  network.host: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+  discovery.zen.ping.unicast.hosts: "{{ groups['master_nodes']|join(',') }}"
+
   node.master: true
   node.data: false
   http.cors.enabled: true
